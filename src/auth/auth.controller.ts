@@ -1,5 +1,4 @@
 import { Controller, Post, Body } from '@nestjs/common';
-import { UserDocument } from 'src/schemas/user.schema';
 import { AuthService } from './auth.service';
 import { SignupUserDTO } from './dto/signup-user.dto';
 import { SignupUser } from './interfaces/signup-user.interface';

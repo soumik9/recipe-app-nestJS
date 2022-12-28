@@ -1,9 +1,15 @@
+import { ObjectId } from "mongoose";
+
 export interface SignupUser {
-    data?: SignupUserData,
+    data?: {
+        name: string;
+        email: string;
+        _id: ObjectId;
+        // password: string;
+    },
     message: string;
     success: boolean;
 }
-
 export interface SignupUserData {
     name: string;
     email: string;
