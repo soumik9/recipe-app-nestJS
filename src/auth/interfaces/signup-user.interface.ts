@@ -10,6 +10,13 @@ export interface SignupUser {
     message: string;
     success: boolean;
 }
+
+export interface LoginResponse {
+    token?: string,
+    message: string;
+    success: boolean;
+}
+
 export interface SignupUserData {
     name: string;
     email: string;

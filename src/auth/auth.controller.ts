@@ -1,7 +1,8 @@
 import { Controller, Post, Body } from '@nestjs/common';
 import { AuthService } from './auth.service';
+import { SigninUser, SigninUserDTO } from './dto/signin-user.dto';
 import { SignupUserDTO } from './dto/signup-user.dto';
-import { SignupUser } from './interfaces/signup-user.interface';
+import { LoginResponse, SignupUser } from './interfaces/signup-user.interface';
 
 // dto helps to which data should come from over network and which type 
 // and schema validation helps when sending request to save the data
@@ -12,13 +13,12 @@ export class AuthController {
 
     @Post('signup')
     async signup(@Body() user: SignupUserDTO): Promise<SignupUser> {
-        // return user;
         return await this.authService.signup(user);
     }
 
     @Post('signin')
-    signin() {
-        return this.authService.login();
+    async signin(@Body() user: SigninUserDTO): Promise<LoginResponse> {
+        return this.authService.login(user);
     }
 
 }
