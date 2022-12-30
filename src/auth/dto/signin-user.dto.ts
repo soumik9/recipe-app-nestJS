@@ -9,8 +9,3 @@ export class SigninUserDTO{
     @IsString()
     readonly password: string;
 }
-
-export class SigninUser{
-    @IsNotEmpty()
-    readonly token: string;
-}

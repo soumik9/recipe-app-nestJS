@@ -57,12 +57,12 @@ export class AuthService {
             // verify password
             const matchedPassword = await this.passwordHasherService.comparePassword(doc.password, findUser.password);
 
-            if(!matchedPassword){ throw new UnauthorizedException('Invalid information!') }
+            if (!matchedPassword) { throw new UnauthorizedException('Invalid information!') }
 
             // token
-            const token =  await this.jwtService.signAsync({
+            const token = await this.jwtService.signAsync({
                 _id: findUser._id, email: findUser.email
-            })
+            }, { expiresIn: '60s' })
 
             return { token, success: true, message: "User created successfully!" };
 
