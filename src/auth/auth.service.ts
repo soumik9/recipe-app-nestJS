@@ -70,4 +70,13 @@ export class AuthService {
             return { errror: error.message, success: false, message: `Server error!` };
         }
     }
+
+    async validateUserById(userId: string): Promise<boolean>{
+        const user = await this.userModel.findById(userId);
+        if(user){
+            return true;
+        }else{
+            return false
+        }
+    }
 }
