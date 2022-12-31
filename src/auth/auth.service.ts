@@ -62,7 +62,7 @@ export class AuthService {
             // token
             const token = await this.jwtService.signAsync({
                 _id: findUser._id, email: findUser.email
-            }, { expiresIn: '60s' })
+            }, { expiresIn: '1d' })
 
             return { token, success: true, message: "User created successfully!" };
 
